@@ -53,17 +53,17 @@ def lbg(features, M):
         
         
         while np.abs(distortion) > eps:
-       	 	#nearest neighbour search
+       	    #nearest neighbour search
             prev_distance = np.mean(D)
             nearest_codebook = np.argmin(D,axis = 1)
             #print 'nearest neighbour',nearest_codebook
         
-        	#cluster vectors and find new centroid
+            #cluster vectors and find new centroid
             #print np.shape(np.mean(features[:, np.where(nearest_codebook == 0)],2))
             for i in range(nCentroid):
                 codebook[:,i] = np.mean(features[:,np.where(nearest_codebook == i)], 2).T #add along 3rd dimension
           
-        	#replace all NaN values with 0  
+            #replace all NaN values with 0  
             codebook = np.nan_to_num(codebook)    
             #print 'this codebook', codebook
             D = EUDistance(features, codebook)
