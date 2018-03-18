@@ -40,15 +40,15 @@ def minDistance(features, codebooks):
 
 for i in range(nSpeaker):
     fname = '/s' + str(i+1) + '.wav'
-    print 'Now speaker ', str(i+1), 'features are being tested'
+    print('Now speaker ', str(i+1), 'features are being tested')
     (fs,s) = read(directory + fname)
     mel_coefs = mfcc(s,fs,nfiltbank)
     lpc_coefs = lpc(s, fs, orderLPC)
     sp_mfcc = minDistance(mel_coefs, codebooks_mfcc)
     sp_lpc = minDistance(lpc_coefs, codebooks_lpc)
     
-    print 'Speaker ', (i+1), ' in test matches with speaker ', (sp_mfcc+1), ' in train for training with MFCC'
-    print 'Speaker ', (i+1), ' in test matches with speaker ', (sp_lpc+1), ' in train for training with LPC'
+    print('Speaker ', (i+1), ' in test matches with speaker ', (sp_mfcc+1), ' in train for training with MFCC')
+    print('Speaker ', (i+1), ' in test matches with speaker ', (sp_lpc+1), ' in train for training with LPC')
    
     if i == sp_mfcc:
         nCorrect_MFCC += 1
@@ -57,9 +57,9 @@ for i in range(nSpeaker):
     
 
 percentageCorrect_MFCC = (nCorrect_MFCC/nSpeaker)*100
-print 'Accuracy of result for training with MFCC is ', percentageCorrect_MFCC, '%'
+print('Accuracy of result for training with MFCC is ', percentageCorrect_MFCC, '%')
 percentageCorrect_LPC = (nCorrect_LPC/nSpeaker)*100
-print 'Accuracy of result for training with LPC is ', percentageCorrect_LPC, '%'
+print('Accuracy of result for training with LPC is ', percentageCorrect_LPC, '%')
 
 
     
