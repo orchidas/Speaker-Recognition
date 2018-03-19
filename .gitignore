@@ -1,0 +1,4 @@
+*.pyc
+*.out
+*.geany
+/.env

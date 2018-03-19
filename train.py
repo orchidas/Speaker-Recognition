@@ -25,7 +25,7 @@ def training(nfiltbank, orderLPC):
 
     for i in range(nSpeaker):
         fname = '/s' + str(i+1) + '.wav'
-        print 'Now speaker ', str(i+1), 'features are being trained' 
+        print('Now speaker ', str(i+1), 'features are being trained' )
         (fs,s) = read(directory + fname)
         mel_coeff = mfcc(s, fs, nfiltbank)
         lpc_coeff = lpc(s, fs, orderLPC)
@@ -47,7 +47,7 @@ def training(nfiltbank, orderLPC):
             plt.xlabel('Number of features')
     
     plt.show()
-    print 'Training complete'
+    print('Training complete')
     
     #plotting 5th and 6th dimension MFCC features on a 2D plane
     #comment lines 54 to 71 if you don't want to see codebook
