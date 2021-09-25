@@ -20,7 +20,7 @@ def training(nfiltbank, orderLPC):
     nCentroid = 16
     codebooks_mfcc = np.empty((nSpeaker,nfiltbank,nCentroid))
     codebooks_lpc = np.empty((nSpeaker, orderLPC, nCentroid))
-    directory = os.getcwd() + '/train';
+    directory = os.path.dirname(os.getcwd()) + '/train';
     fname = str()
 
     for i in range(nSpeaker):
